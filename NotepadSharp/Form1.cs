@@ -55,6 +55,7 @@ namespace NotepadSharp
             string fileName = openFileDialog1.FileName;
             textBox1.Text= File.ReadAllText(fileName);
             FindForm().Text = openFileDialog1.SafeFileName + "- Notepad Sharp";
+            
 
             // safe file name only mentions filename with an extension where as fileName mentions the entire path without extension.
         }
@@ -68,6 +69,7 @@ namespace NotepadSharp
         {
             // toggle not happening on first click. As a workaround, first fire happens on load here.  
             toggleDarkMode();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
