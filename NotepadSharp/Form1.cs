@@ -54,16 +54,45 @@ namespace NotepadSharp
            // the text area/typing area's text is filled with readAllText which returns a string.
             string fileName = openFileDialog1.FileName;
             textBox1.Text= File.ReadAllText(fileName);
+            FindForm().Text = openFileDialog1.SafeFileName + "- Notepad Sharp";
+
+            // safe file name only mentions filename with an extension where as fileName mentions the entire path without extension.
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // toggle not happening on first click. As a workaround, first fire happens on load here.  
+            toggleDarkMode();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void DarkMode_Click(object sender, EventArgs e)
+        {
+            toggleDarkMode();
+        }
+
+        private void toggleDarkMode()
+        {
+            if(textBox1.BackColor==Color.White)
+            {
+                textBox1.BackColor = Color.Black;
+                textBox1.ForeColor = Color.White;
+                DarkMode.Text = "Light Mode";
+            }else
+            {
+                textBox1.BackColor = Color.White;
+                textBox1.ForeColor = Color.Black;
+                DarkMode.Text = "Dark Mode";
+            }
         }
     }
 }

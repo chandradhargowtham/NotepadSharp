@@ -35,6 +35,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.New = new System.Windows.Forms.Button();
+            this.DarkMode = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -80,7 +82,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(2, -1);
+            this.button1.Location = new System.Drawing.Point(122, -1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 29);
             this.button1.TabIndex = 5;
@@ -93,11 +95,34 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // New
+            // 
+            this.New.Location = new System.Drawing.Point(2, -1);
+            this.New.Name = "New";
+            this.New.Size = new System.Drawing.Size(60, 29);
+            this.New.TabIndex = 6;
+            this.New.Text = "New";
+            this.New.UseVisualStyleBackColor = true;
+            this.New.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // DarkMode
+            // 
+            this.DarkMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DarkMode.Location = new System.Drawing.Point(661, -1);
+            this.DarkMode.Name = "DarkMode";
+            this.DarkMode.Size = new System.Drawing.Size(88, 29);
+            this.DarkMode.TabIndex = 7;
+            this.DarkMode.Text = "Dark Mode";
+            this.DarkMode.UseVisualStyleBackColor = true;
+            this.DarkMode.Click += new System.EventHandler(this.DarkMode_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DarkMode);
+            this.Controls.Add(this.New);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -118,6 +143,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button New;
+        private System.Windows.Forms.Button DarkMode;
     }
 }
 
