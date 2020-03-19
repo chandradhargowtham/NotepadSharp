@@ -37,6 +37,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.New = new System.Windows.Forms.Button();
             this.DarkMode = new System.Windows.Forms.Button();
+            this.fontStyle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -66,6 +67,10 @@
             // saveFileDialog1
             // 
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // fontDialog1
+            // 
+            this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
             // 
             // button3
             // 
@@ -116,11 +121,22 @@
             this.DarkMode.UseVisualStyleBackColor = true;
             this.DarkMode.Click += new System.EventHandler(this.DarkMode_Click);
             // 
+            // fontStyle
+            // 
+            this.fontStyle.Location = new System.Drawing.Point(188, -1);
+            this.fontStyle.Name = "fontStyle";
+            this.fontStyle.Size = new System.Drawing.Size(76, 29);
+            this.fontStyle.TabIndex = 8;
+            this.fontStyle.Text = "Text Style";
+            this.fontStyle.UseVisualStyleBackColor = true;
+            this.fontStyle.Click += new System.EventHandler(this.fontStyle_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.fontStyle);
             this.Controls.Add(this.DarkMode);
             this.Controls.Add(this.New);
             this.Controls.Add(this.button1);
@@ -145,6 +161,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button New;
         private System.Windows.Forms.Button DarkMode;
+        private System.Windows.Forms.Button fontStyle;
     }
 }
 

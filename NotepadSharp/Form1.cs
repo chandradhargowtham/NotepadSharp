@@ -96,5 +96,17 @@ namespace NotepadSharp
                 DarkMode.Text = "Dark Mode";
             }
         }
+
+        // opens fontDialog and gets the values from user, then textbox.font is assigned those values.
+        private void fontStyle_Click(object sender, EventArgs e)
+        {
+            fontDialog1.ShowDialog();
+            textBox1.Font = fontDialog1.Font;
+        }
+
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
