@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NotepadSharp.exe" size="188856">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NotepadSharp.exe" size="189392">
       <assemblyIdentity name="NotepadSharp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>F/k3AeNsvMHHjMNTQ3w/K+ktXZQ+KHX/C3mJquSBZ7k=</dsig:DigestValue>
+        <dsig:DigestValue>G+feLmuvXG2rj/d8hDHFHteS6QJk3/4VPyPq3+C5xqo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

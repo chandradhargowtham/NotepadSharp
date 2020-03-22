@@ -15,8 +15,10 @@ namespace NotepadSharp
     {
         public Form1()
         {
+            
             InitializeComponent();
         }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -31,6 +33,8 @@ namespace NotepadSharp
         // when save button is clicked, save file dialog is loaded.
         private void button2_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.Filter= "Text File|*.txt|HTML File|*.html";
+            saveFileDialog1.Title = "Save File As";
             saveFileDialog1.ShowDialog();
             
         }
@@ -69,7 +73,8 @@ namespace NotepadSharp
         {
             // toggle not happening on first click. As a workaround, first fire happens on load here.  
             toggleDarkMode();
-            
+            textBox1.MaxLength = Int32.MaxValue;
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -107,6 +112,17 @@ namespace NotepadSharp
         private void fontDialog1_Apply(object sender, EventArgs e)
         {
             
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MaxLength_Click(object sender, EventArgs e)
+        {
+            
+            //textBox1.MaxLength =textBox1.MaxLength+2;
         }
     }
 }
