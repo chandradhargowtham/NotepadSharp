@@ -40,6 +40,10 @@
             this.Find = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.LineNumbersBox = new System.Windows.Forms.TextBox();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.print = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // button2
@@ -122,7 +126,7 @@
             // Find
             // 
             this.Find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Find.Location = new System.Drawing.Point(472, -1);
+            this.Find.Location = new System.Drawing.Point(567, -1);
             this.Find.Name = "Find";
             this.Find.Size = new System.Drawing.Size(88, 29);
             this.Find.TabIndex = 9;
@@ -132,7 +136,8 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(366, 4);
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(461, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 10;
@@ -145,15 +150,45 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(2, 34);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(797, 416);
+            this.richTextBox1.Size = new System.Drawing.Size(797, 393);
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged_1);
+            this.richTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox1_KeyPress);
+            // 
+            // LineNumbersBox
+            // 
+            this.LineNumbersBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.LineNumbersBox.Location = new System.Drawing.Point(661, 433);
+            this.LineNumbersBox.Multiline = true;
+            this.LineNumbersBox.Name = "LineNumbersBox";
+            this.LineNumbersBox.ReadOnly = true;
+            this.LineNumbersBox.Size = new System.Drawing.Size(74, 18);
+            this.LineNumbersBox.TabIndex = 13;
+            this.LineNumbersBox.Text = "Lines : 1";
+            this.LineNumbersBox.TextChanged += new System.EventHandler(this.LineNumbersBox_TextChanged);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // print
+            // 
+            this.print.Location = new System.Drawing.Point(270, -1);
+            this.print.Name = "print";
+            this.print.Size = new System.Drawing.Size(88, 29);
+            this.print.TabIndex = 14;
+            this.print.Text = "Print";
+            this.print.UseVisualStyleBackColor = true;
+            this.print.Click += new System.EventHandler(this.print_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.print);
+            this.Controls.Add(this.LineNumbersBox);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.Find);
@@ -184,6 +219,10 @@
         private System.Windows.Forms.Button Find;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox LineNumbersBox;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button print;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
 

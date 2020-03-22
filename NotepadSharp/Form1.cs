@@ -44,6 +44,7 @@ namespace NotepadSharp
         {
             string fileName = saveFileDialog1.FileName;
             File.WriteAllText(fileName,richTextBox1.Text);
+            FindForm().Text = saveFileDialog1.FileName + "- Notepad Sharp";
         }
 
         // When clicked on ok button, open file dialog is run
@@ -59,7 +60,8 @@ namespace NotepadSharp
             string fileName = openFileDialog1.FileName;
             richTextBox1.Text= File.ReadAllText(fileName);
             FindForm().Text = openFileDialog1.SafeFileName + "- Notepad Sharp";
-            
+            LineNumbersBox.Text = "Lines : " + (richTextBox1.Lines.Length).ToString();
+
 
             // safe file name only mentions filename with an extension where as fileName mentions the entire path without extension.
         }
@@ -74,12 +76,16 @@ namespace NotepadSharp
             // toggle not happening on first click. As a workaround, first fire happens on load here.  
             toggleDarkMode();
             richTextBox1.MaxLength = Int32.MaxValue;
+            
 
         }
-
+        // New button code
         private void button4_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
+            FindForm().Text = "Unsaved File" + "- Notepad Sharp";
+            LineNumbersBox.Text = "Lines : " + (richTextBox1.Lines.Length).ToString();
+
         }
 
         private void DarkMode_Click(object sender, EventArgs e)
@@ -169,6 +175,65 @@ namespace NotepadSharp
         private void button4_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void richTextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void LineNumbers_Click(object sender, EventArgs e)
+        {
+            //LineNumbers.Text= richTextBox1.Lines.Length.ToString();
+            for(int i =0; i< richTextBox1.Lines.Length;i++)
+            {
+                LineNumbersBox.Text = i.ToString();
+            }
+        }
+
+        private void LineNumbers_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                for (int i = 0; i < richTextBox1.Lines.Length; i++)
+                {
+                    LineNumbersBox.Text = i.ToString();
+                }
+            }
+        }
+
+        
+        private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(char)ConsoleKey.Enter)
+            {
+                // Buggy and unscrollable.. hence removed the feature .
+                LineNumbersBox.Text = "";
+                //for (int i = 1; i < richTextBox1.Lines.Length+1; i++)
+                //{
+                //    LineNumbersBox.Text += i.ToString() + "\n";
+                //}
+                LineNumbersBox.Text = "Lines : "+(richTextBox1.Lines.Length).ToString();
+                
+
+            }
+        }
+
+        private void LineNumbersBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void print_Click(object sender, EventArgs e)
+        {
+            printDialog1.PrintToFile = true;
+            //printDialog1.ShowDialog();
+            DialogResult d = printDialog1.ShowDialog();
+            if (d == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+            
         }
     }
 }
