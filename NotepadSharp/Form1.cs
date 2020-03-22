@@ -43,7 +43,7 @@ namespace NotepadSharp
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             string fileName = saveFileDialog1.FileName;
-            File.WriteAllText(fileName,textBox1.Text);
+            File.WriteAllText(fileName,richTextBox1.Text);
         }
 
         // When clicked on ok button, open file dialog is run
@@ -57,14 +57,14 @@ namespace NotepadSharp
            // the file name we want to open is saved as a string.
            // the text area/typing area's text is filled with readAllText which returns a string.
             string fileName = openFileDialog1.FileName;
-            textBox1.Text= File.ReadAllText(fileName);
+            richTextBox1.Text= File.ReadAllText(fileName);
             FindForm().Text = openFileDialog1.SafeFileName + "- Notepad Sharp";
             
 
             // safe file name only mentions filename with an extension where as fileName mentions the entire path without extension.
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             
         }
@@ -73,13 +73,13 @@ namespace NotepadSharp
         {
             // toggle not happening on first click. As a workaround, first fire happens on load here.  
             toggleDarkMode();
-            textBox1.MaxLength = Int32.MaxValue;
+            richTextBox1.MaxLength = Int32.MaxValue;
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            richTextBox1.Text = "";
         }
 
         private void DarkMode_Click(object sender, EventArgs e)
@@ -89,15 +89,17 @@ namespace NotepadSharp
 
         private void toggleDarkMode()
         {
-            if(textBox1.BackColor==Color.White)
+            if(richTextBox1.BackColor==Color.White)
             {
-                textBox1.BackColor = Color.Black;
-                textBox1.ForeColor = Color.White;
+                richTextBox1.BackColor = Color.Black;
+                richTextBox1.ForeColor = Color.White;
+                richTextBox1.SelectionBackColor = richTextBox1.BackColor;
                 DarkMode.Text = "Light Mode";
             }else
             {
-                textBox1.BackColor = Color.White;
-                textBox1.ForeColor = Color.Black;
+                richTextBox1.BackColor = Color.White;
+                richTextBox1.ForeColor = Color.Black;
+                richTextBox1.SelectionBackColor = richTextBox1.BackColor;
                 DarkMode.Text = "Dark Mode";
             }
         }
@@ -106,7 +108,7 @@ namespace NotepadSharp
         private void fontStyle_Click(object sender, EventArgs e)
         {
             fontDialog1.ShowDialog();
-            textBox1.Font = fontDialog1.Font;
+            richTextBox1.Font = fontDialog1.Font;
         }
 
         private void fontDialog1_Apply(object sender, EventArgs e)
@@ -122,7 +124,51 @@ namespace NotepadSharp
         private void MaxLength_Click(object sender, EventArgs e)
         {
             
-            //textBox1.MaxLength =textBox1.MaxLength+2;
+            //richTextBox1.MaxLength =richTextBox1.MaxLength+2;
+        }
+
+        private void Find_Click(object sender, EventArgs e)
+        {
+            //richTextBox1.SelectionBackColor = Color.White;
+            string find=(textBox2.Text.Length>1)?textBox2.Text:"";
+            if(richTextBox1.Text.Contains(find))
+            {
+                Find.Text = "Found";
+                string findSource = richTextBox1.Text;
+                if (find.Length > 0)
+                {
+                    int start = findSource.IndexOf(find[0]);
+                    int end = findSource.IndexOf(find[find.Length - 1]);
+                    richTextBox1.Select(start, end + 1);
+
+                    richTextBox1.SelectionBackColor = Color.Blue;
+                }else
+                {
+                    richTextBox1.SelectionBackColor = richTextBox1.BackColor;
+                }
+            }
+            else
+            {
+                
+                Find.Text = "No Found";
+               
+                    richTextBox1.SelectionBackColor = richTextBox1.BackColor;
+               
+               
+            }
+
+            
+            
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }
